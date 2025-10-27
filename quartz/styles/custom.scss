@@ -1,3 +1,121 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+// Dark Library/Coffee/Bookstore Theme
+
+// Enhanced readability with classic book-style spacing
+body {
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+// Soft text rendering for a warmer feel
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.02em;
+}
+
+// Custom scrollbar for dark mode
+:root[saved-theme="dark"] {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) var(--lightgray);
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--lightgray);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 5px;
+
+    &:hover {
+      background: var(--tertiary);
+    }
+  }
+}
+
+// Enhanced link styling with warm underlines
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    text-decoration-thickness: 2px;
+    color: var(--secondary);
+  }
+}
+
+// Warm glow effect for focused elements
+:root[saved-theme="dark"] {
+  input:focus,
+  textarea:focus,
+  button:focus {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+    box-shadow: 0 0 8px rgba(212, 165, 116, 0.3);
+  }
+}
+
+// Enhanced code blocks with warmer background
+:root[saved-theme="dark"] {
+  pre, code {
+    background: rgba(45, 36, 25, 0.5);
+    border: 1px solid var(--gray);
+  }
+
+  pre {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Subtle paper texture effect (optional - can be removed if too much)
+:root[saved-theme="dark"] {
+  .page {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.03;
+      pointer-events: none;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.05) 0px,
+          transparent 1px,
+          transparent 2px,
+          rgba(255, 255, 255, 0.05) 3px
+        );
+      z-index: -1;
+    }
+  }
+}
+
+// Warm selection highlight
+::selection {
+  background: var(--secondary);
+  color: var(--light);
+}
+
+// Softer blockquote styling
+blockquote {
+  border-left: 4px solid var(--secondary);
+  padding-left: 1.5rem;
+  font-style: italic;
+  opacity: 0.9;
+
+  :root[saved-theme="dark"] & {
+    background: rgba(212, 165, 116, 0.05);
+    padding: 1rem 1.5rem;
+    border-radius: 0 4px 4px 0;
+  }
+}
