@@ -23,6 +23,11 @@ import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
+import Quote from "./Quote"
+import NowReading from "./NowReading"
+import SessionLog from "./SessionLog"
+import NowPlaying from "./NowPlaying"
+import CurrentlyPondering from "./CurrentlyPondering"
 
 export {
   ArticleTitle,
@@ -50,4 +55,9 @@ export {
   Comments,
   Flex,
   ConditionalRender,
+  Quote,
+  NowReading,
+  SessionLog,
+  NowPlaying,
+  CurrentlyPondering,
 }

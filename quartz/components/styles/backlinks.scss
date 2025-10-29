@@ -2,22 +2,44 @@
 
 .backlinks {
   flex-direction: column;
+  background: color-mix(in srgb, var(--light) 98%, var(--secondary) 2%);
+  border-radius: $radius-lg;
+  padding: $space-lg;
+  box-shadow: $shadow-md;
+  border: 1px solid var(--lightgray);
 
   & > h3 {
-    font-size: 1rem;
-    margin: 0;
+    font-size: $font-lg;
+    margin: 0 0 $space-md 0;
+    color: var(--dark);
+    font-weight: $semiBoldWeight;
   }
 
   & > ul.overflow {
     list-style: none;
     padding: 0;
-    margin: 0.5rem 0;
+    margin: $space-md 0;
     max-height: calc(100% - 2rem);
     overscroll-behavior: contain;
 
     & > li {
+      margin: 2px 0;
+
       & > a {
         background-color: transparent;
+        padding: 2px 6px;
+        border-radius: $radius-sm;
+        display: inline-block;
+        transition: all 0.2s ease;
+        color: var(--dark);
+        opacity: 0.85;
+
+        &:hover {
+          opacity: 1;
+          background: color-mix(in srgb, var(--highlight) 50%, transparent 50%);
+          transform: translateX(2px);
+          color: var(--secondary);
+        }
       }
     }
   }

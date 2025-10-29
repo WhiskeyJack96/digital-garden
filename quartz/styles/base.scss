@@ -14,15 +14,20 @@ html {
 body {
   margin: 0;
   box-sizing: border-box;
-  background-color: var(--light);
+  background: linear-gradient(
+    135deg,
+    var(--light) 0%,
+    color-mix(in srgb, var(--light) 95%, var(--secondary) 5%) 100%
+  );
   font-family: var(--bodyFont);
   color: var(--darkgray);
+  line-height: 1.7;
 }
 
 .text-highlight {
   background-color: var(--textHighlight);
   padding: 0 0.1rem;
-  border-radius: 5px;
+  border-radius: $radius-sm;
 }
 ::selection {
   background: color-mix(in srgb, var(--tertiary) 60%, rgba(255, 255, 255, 0));
@@ -46,6 +51,7 @@ ul,
   fill: var(--darkgray);
   overflow-wrap: break-word;
   text-wrap: pretty;
+  line-height: 1.7;
 }
 
 .math {
@@ -76,18 +82,19 @@ strong {
 a {
   font-weight: $semiBoldWeight;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--secondary);
+  position: relative;
 
   &:hover {
     color: var(--tertiary);
+    transform: translateY(-1px);
   }
 
   &.internal {
     text-decoration: none;
-    background-color: var(--highlight);
     padding: 0 0.1rem;
-    border-radius: 5px;
+    border-radius: $radius-sm;
     line-height: 1.4rem;
 
     &.broken {
@@ -211,10 +218,10 @@ a {
     }
 
     & .sidebar {
-      gap: 1.2rem;
+      gap: 1.5rem;
       top: 0;
       box-sizing: border-box;
-      padding: $topSpacing 2rem 2rem 2rem;
+      padding: $topSpacing 1.5rem 2rem 1.5rem;
       display: flex;
       height: 100vh;
       position: sticky;
@@ -240,6 +247,7 @@ a {
       grid-area: grid-sidebar-right;
       margin-right: 0;
       flex-direction: column;
+      gap: $space-md;
       @media all and ($mobile) {
         margin-left: inherit;
         margin-right: inherit;
@@ -339,10 +347,18 @@ input[type="checkbox"] {
 }
 
 blockquote {
-  margin: 1rem 0;
-  border-left: 3px solid var(--secondary);
-  padding-left: 1rem;
-  transition: border-color 0.2s ease;
+  margin: $space-lg 0;
+  border-left: 4px solid var(--secondary);
+  padding: $space-md $space-lg;
+  background: linear-gradient(to right, var(--highlight), transparent);
+  border-radius: 0 $radius-md $radius-md 0;
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    border-left-color: var(--tertiary);
+    transform: translateX(2px);
+  }
 }
 
 h1,
@@ -354,8 +370,10 @@ h6,
 thead {
   font-family: var(--headerFont);
   color: var(--dark);
-  font-weight: revert;
+  font-weight: 600;
   margin-bottom: 0;
+  letter-spacing: -0.02em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 
   article > & > a[role="anchor"] {
     color: var(--dark);
@@ -387,31 +405,51 @@ h6 {
   }
 }
 
-// typography improvements
+// Typography scale - using design tokens for consistency
 h1 {
-  font-size: 1.75rem;
-  margin-top: 2.25rem;
-  margin-bottom: 1rem;
+  font-size: $font-3xl;
+  margin-top: $space-2xl;
+  margin-bottom: $space-lg;
+  font-weight: $boldWeight;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
 }
 
 h2 {
-  font-size: 1.4rem;
-  margin-top: 1.9rem;
-  margin-bottom: 1rem;
+  font-size: $font-2xl;
+  margin-top: $space-xl;
+  margin-bottom: $space-md;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
 }
 
 h3 {
-  font-size: 1.12rem;
-  margin-top: 1.62rem;
-  margin-bottom: 1rem;
+  font-size: $font-xl;
+  margin-top: $space-lg;
+  margin-bottom: $space-md;
+  font-weight: $semiBoldWeight;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
 }
 
-h4,
+h4 {
+  font-size: $font-lg;
+  margin-top: $space-lg;
+  margin-bottom: $space-md;
+  font-weight: $semiBoldWeight;
+  letter-spacing: -0.015em;
+  line-height: 1.5;
+}
+
 h5,
 h6 {
-  font-size: 1rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: $font-base;
+  margin-top: $space-md;
+  margin-bottom: $space-sm;
+  font-weight: $semiBoldWeight;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
 }
 
 figure[data-rehype-pretty-code-figure] {
@@ -422,12 +460,12 @@ figure[data-rehype-pretty-code-figure] {
 
   & > [data-rehype-pretty-code-title] {
     font-family: var(--codeFont);
-    font-size: 0.9rem;
-    padding: 0.1rem 0.5rem;
+    font-size: $font-sm;
+    padding: 0.1rem $space-sm;
     border: 1px solid var(--lightgray);
     width: fit-content;
-    border-radius: 5px;
-    margin-bottom: -0.5rem;
+    border-radius: $radius-sm;
+    margin-bottom: -$space-sm;
     color: var(--darkgray);
   }
 
@@ -438,11 +476,17 @@ figure[data-rehype-pretty-code-figure] {
 
 pre {
   font-family: var(--codeFont);
-  padding: 0 0.5rem;
-  border-radius: 5px;
+  padding: $space-md;
+  border-radius: $radius-md;
   overflow-x: auto;
   border: 1px solid var(--lightgray);
   position: relative;
+  background: linear-gradient(
+    135deg,
+    var(--light) 0%,
+    color-mix(in srgb, var(--light) 98%, var(--secondary) 2%) 100%
+  );
+  box-shadow: $shadow-md;
 
   &:has(> code.mermaid) {
     border: none;
@@ -460,7 +504,7 @@ pre {
 
     & [data-highlighted-chars] {
       background-color: var(--highlight);
-      border-radius: 5px;
+      border-radius: $radius-sm;
     }
 
     & > [data-line] {
@@ -498,9 +542,15 @@ code {
   font-size: 0.9em;
   color: var(--dark);
   font-family: var(--codeFont);
-  border-radius: 5px;
-  padding: 0.1rem 0.2rem;
-  background: var(--lightgray);
+  border-radius: $radius-sm;
+  padding: 0.2rem 0.4rem;
+  background: var(--highlight);
+  border: 1px solid color-mix(in srgb, var(--lightgray) 70%, transparent 30%);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--highlight) 80%, var(--secondary) 20%);
+  }
 }
 
 tbody,
@@ -511,44 +561,59 @@ p {
 
 .table-container {
   overflow-x: auto;
+  margin: $space-lg 0;
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+  border: 1px solid var(--lightgray);
 
   & > table {
-    margin: 1rem;
-    padding: 1.5rem;
+    margin: 0;
+    padding: 1rem;
     border-collapse: collapse;
+    width: 100%;
 
     th,
     td {
       min-width: 75px;
+      padding: 0.75rem 1rem;
     }
 
     & > * {
-      line-height: 2rem;
+      line-height: 1.6rem;
     }
   }
 }
 
 th {
   text-align: left;
-  padding: 0.4rem 0.7rem;
-  border-bottom: 2px solid var(--gray);
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--secondary);
+  font-weight: 600;
+  background: var(--highlight);
+  color: var(--dark);
 }
 
 td {
-  padding: 0.2rem 0.7rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--lightgray);
 }
 
 tr {
-  border-bottom: 1px solid var(--lightgray);
-  &:last-child {
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background: var(--highlight);
+  }
+
+  &:last-child td {
     border-bottom: none;
   }
 }
 
 img {
   max-width: 100%;
-  border-radius: 5px;
-  margin: 1rem 0;
+  border-radius: $radius-sm;
+  margin: $space-md 0;
   content-visibility: auto;
 }
 
@@ -559,16 +624,17 @@ p > img + em {
 
 hr {
   width: 100%;
-  margin: 2rem auto;
-  height: 1px;
+  margin: $space-2xl auto;
+  height: 2px;
   border: none;
-  background-color: var(--lightgray);
+  background: linear-gradient(to right, transparent, var(--lightgray), transparent);
+  border-radius: 1px;
 }
 
 audio,
 video {
   width: 100%;
-  border-radius: 5px;
+  border-radius: $radius-sm;
 }
 
 .spacer {
@@ -618,7 +684,7 @@ iframe.pdf {
   aspect-ratio: 16 / 9;
   height: 100%;
   width: 100%;
-  border-radius: 5px;
+  border-radius: $radius-sm;
 }
 
 .navigation-progress {

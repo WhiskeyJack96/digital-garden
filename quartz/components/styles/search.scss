@@ -8,19 +8,27 @@
   }
 
   & > .search-button {
-    background-color: transparent;
-    border: 1px var(--lightgray) solid;
-    border-radius: 4px;
+    background-color: color-mix(in srgb, var(--light) 98%, var(--secondary) 2%);
+    border: 1px solid var(--lightgray);
+    border-radius: $radius-md;
     font-family: inherit;
     font-size: inherit;
-    height: 2rem;
-    padding: 0 1rem 0 0;
+    height: 2.25rem;
+    padding: 0 $space-md 0 0;
     display: flex;
     align-items: center;
     text-align: inherit;
     cursor: pointer;
     white-space: nowrap;
     width: 100%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: $shadow-sm;
+
+    &:hover {
+      border-color: var(--secondary);
+      box-shadow: $shadow-md;
+      transform: translateY(-1px);
+    }
 
     & > p {
       display: inline;
@@ -31,7 +39,7 @@
       cursor: pointer;
       width: 18px;
       min-width: 18px;
-      margin: 0 0.5rem;
+      margin: 0 $space-sm;
 
       .search-path {
         stroke: var(--darkgray);
@@ -69,24 +77,25 @@
 
       & > * {
         width: 100%;
-        border-radius: 7px;
+        border-radius: $radius-lg;
         background: var(--light);
-        box-shadow:
-          0 14px 50px rgba(27, 33, 48, 0.12),
-          0 10px 30px rgba(27, 33, 48, 0.16);
-        margin-bottom: 2em;
+        box-shadow: $shadow-lg;
+        margin-bottom: $space-xl;
       }
 
       & > input {
         box-sizing: border-box;
-        padding: 0.5em 1em;
+        padding: $space-md $space-lg;
         font-family: var(--bodyFont);
         color: var(--dark);
-        font-size: 1.1em;
+        font-size: $font-lg;
         border: 1px solid var(--lightgray);
+        transition: all 0.3s ease;
 
         &:focus {
           outline: none;
+          border-color: var(--secondary);
+          box-shadow: 0 0 0 3px color-mix(in srgb, var(--secondary) 15%, transparent 85%);
         }
       }
 
@@ -177,9 +186,9 @@
 
           & .result-card {
             overflow: hidden;
-            padding: 1em;
+            padding: 1.25em;
             cursor: pointer;
-            transition: background 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border-bottom: 1px solid var(--lightgray);
             width: 100%;
             display: block;
@@ -198,7 +207,8 @@
             &:hover,
             &:focus,
             &.focus {
-              background: var(--lightgray);
+              background: var(--highlight);
+              transform: translateX(4px);
             }
 
             & > h3 {

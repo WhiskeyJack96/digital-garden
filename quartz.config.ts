@@ -10,6 +10,7 @@ const config: QuartzConfig = {
   configuration: {
     pageTitle: "Whiskey Stacks",
     pageTitleSuffix: "",
+    headerQuote: "The only way to begin is by beginning",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
@@ -29,26 +30,26 @@ const config: QuartzConfig = {
       },
       colors: {
         lightMode: {
-          light: "#f5ede0",
-          lightgray: "#e6d5bb",
+          light: "#faf8f3",
+          lightgray: "#e8dcc4",
           gray: "#b09a7e",
-          darkgray: "#4a3f2f",
+          darkgray: "#3d3326", // Slightly darker for better contrast
           dark: "#2d2419",
           secondary: "#8b5a3c",
           tertiary: "#a67c52",
-          highlight: "rgba(139, 90, 60, 0.15)",
-          textHighlight: "#d4a57444",
+          highlight: "rgba(139, 90, 60, 0.10)", // Slightly more subtle
+          textHighlight: "rgba(212, 165, 116, 0.25)",
         },
         darkMode: {
           light: "#1a1410",
-          lightgray: "#2d2419",
-          gray: "#4a3f2f",
-          darkgray: "#c9b8a3",
-          dark: "#e8dcc4",
+          lightgray: "#3d3326",
+          gray: "#5c4f3e",
+          darkgray: "#f0e8d8", // Brighter for better readability
+          dark: "#faf8f3",
           secondary: "#d4a574",
-          tertiary: "#8b5a3c",
-          highlight: "rgba(212, 165, 116, 0.15)",
-          textHighlight: "#d4a57444",
+          tertiary: "#b8915f", // Warmer tertiary for dark mode
+          highlight: "rgba(212, 165, 116, 0.15)", // Better visibility
+          textHighlight: "rgba(212, 165, 116, 0.3)",
         },
       },
     },
