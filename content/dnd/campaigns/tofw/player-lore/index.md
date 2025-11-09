@@ -8,23 +8,21 @@ This is a collection of player-accessible lore for the **Turn of Fortune's Wheel
 ## Locations
 
 - [[Sigil]] - The City of Doors, neutral ground of the planes
-- [[Mortuary]] - A mysterious establishment in Sigil
+- [[Mortuary]] - The mortuary of Sigil
 - [[Smoldering Corpse Bar]] - A popular tavern in the Hive Ward
-
+- [[Fortune's Wheel]] - The casino that never sleeps
 ## Artifacts & Concepts
 
-- [[Fortune's Wheel]] - The enigmatic artifact at the center of the campaign
-- [[Mosaic Mimir]] - A fragmented construct containing ancient knowledge
-- [[The Mimir]] - Related to the Mosaic Mimir construct
+- [[Mosaic Mimir]] - A fragmented construct meant to record the current state of the planes
 
 ## NPCs & Beings
 
-- [[Annam]] - A tiefling warlock and member of the party
-- [[A'Kin]] - An air genasi sorcerer and member of the party
-- [[Parisa]] - A half-elf cleric and member of the party
-- [[Jex]] - A tabaxi rogue and member of the party
-- [[Fellik]] - A kenku artificer and member of the party
-- [[Morte]] - A talking skull companion
-- [[Amod Ka]] - A mysterious figure
-- [[Shemeshka the Marauder]] - A notorious marauder
-- [[Verdax the Resonant]] - A powerful entity
+- [[Annam]] - An enigmatic Giant God
+- [[A'Kin]] - The Friendly Fiends Proprietor
+- [[Parisa]] - A tout the party hired long ago
+- [[Jex]] - Mortuary Staff
+- [[Fellik]] - A petitioner in search of his father, and something else...
+- [[Morte]] - A talking skull, and your first friend
+- [[Amod Ka]] - A mercy killer on the hunt
+- [[Shemeshka the Marauder]] - The proprietor of The Fortune's Wheel.
+- [[Verdax the Resonant]] - A powerful entity, trapped in a bell 
