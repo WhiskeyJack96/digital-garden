@@ -10,7 +10,7 @@ const config: QuartzConfig = {
   configuration: {
     pageTitle: "Whiskey Stacks",
     pageTitleSuffix: "",
-    headerQuote: "The only way to begin is by beginning",
+    headerQuote: "The world changes, and life fights entropy. Forward was the only way. Forming something new out of the now, not scavenging for what might have been. -- Marina J. Lostetter via Noumenon Ultra",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
